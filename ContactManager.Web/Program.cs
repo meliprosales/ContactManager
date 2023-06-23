@@ -1,5 +1,7 @@
 using ContactManager.BusinessLogic;
 using ContactManager.BusinessLogic.Data;
+using ContactManager.Web.Models;
+using ContactManager.Web.Services;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +14,15 @@ var connectionString = sqlConnectionStringBuilder.ConnectionString;
 //var connectionString = builder.Configuration.GetConnectionString("DefaultConection");
 
 builder.Services.AddDbContext<ContactManagerContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddHttpClient("BingMaps", c =>
+{
+    c.BaseAddress = new Uri("https://dev.virtualearth.net/");
+    c.DefaultRequestHeaders.Add("Accept", "application/json");
+});
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+builder.Services.AddScoped<BingMapsService, BingMapsService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

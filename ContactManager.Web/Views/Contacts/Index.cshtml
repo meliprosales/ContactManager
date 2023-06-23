@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form id="searchForm">
+    <input type="text" id="searchInput" />
+</form>
+
+@Html.AntiForgeryToken()
+
+<div id="searchResults"></div>

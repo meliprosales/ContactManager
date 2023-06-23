@@ -1,0 +1,22 @@
+﻿@model ContactManager.BusinessLogic.Contact
+
+<dt class="col-sm-12">
+    @Html.DisplayNameFor(model => model.FirstName)
+</dt>
+<dd class="col-sm-12">
+    @Html.DisplayFor(model => model.FirstName)
+</dd>
+
+<dt class="col-sm-12">
+    @Html.DisplayNameFor(model => model.LastName)
+</dt>
+<dd class="col-sm-12">
+    @Html.DisplayFor(model => model.LastName)
+</dd>
+
+<dt class="col-sm-12">
+    @Html.DisplayNameFor(model => model.Address)
+</dt>
+<dd class="col-sm-12">
+    <p>@Model.Address.ToString()</p>
+</dd>
