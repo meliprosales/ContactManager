@@ -32,7 +32,12 @@ namespace ContactManager.Web.Controllers
                 items = _context.Contacts
                     .Include(item => item.Address)
                     .Where(item => item.FirstName.Contains(searchTerm)
-                    || item.LastName.Contains(searchTerm))
+                    || item.LastName.Contains(searchTerm)
+                    || item.Address.Street.Contains(searchTerm)
+                    || item.Address.City.Contains(searchTerm)
+                    || item.Address.State.Contains(searchTerm)
+                    || item.Address.PostalCode.Contains(searchTerm)
+                    )                    
                     .ToList();
             }
             else
