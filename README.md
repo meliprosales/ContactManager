@@ -36,8 +36,8 @@ The Contact Manager application includes the following features:
   - Search functionality allowing users to search across all fields using a "contains" approach
   - Real-time filtering of the grid as the user types in the search box
   - "New Contact" button to add a new contact
-  - "Edit Contact" button to modify an existing contact
-  - "Delete Contact" button to remove a contact
+  - "Edit" button to modify an existing contact
+  - "Delete" button to remove a contact
   - Integration with a third-party web service API to validate addresses
   - Displaying the address location on a map
   - Utilizing AJAX for seamless page updates without refreshing
