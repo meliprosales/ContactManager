@@ -37,8 +37,11 @@ using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider
         .GetRequiredService<ContactManagerContext>();
+    var numberOfContacts = builder.Configuration.GetSection("NumberOfContacts").Value;
+    DataGenerator.NumberOfContacts = (numberOfContacts!=null)? int.Parse(numberOfContacts) : 5;
     DataGenerator.InitData();
     dbContext.Database.EnsureCreated();
 }
+
 
 app.Run();

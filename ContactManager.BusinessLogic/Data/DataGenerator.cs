@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
+using Microsoft.Extensions.Configuration;
 
 namespace ContactManager.BusinessLogic.Data
 {
@@ -16,9 +17,7 @@ namespace ContactManager.BusinessLogic.Data
 
         public static readonly List<Address> Addresses = new();
 
-        public const int NumberOfContacts = 5;
-
-        public const int NumberOfAddress = 1;
+        public static int NumberOfContacts = 5;
 
         public static void InitData()
         {
@@ -41,7 +40,7 @@ namespace ContactManager.BusinessLogic.Data
         private static List<Address> GesAddressData(int contactId, int id)
         {
             var addressGenerator = GetAddressGenerator(contactId, id);
-            var generatedAddresses = addressGenerator.Generate(NumberOfAddress);
+            var generatedAddresses = addressGenerator.Generate(1);
             return generatedAddresses;
         }
 
