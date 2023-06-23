@@ -27,22 +27,21 @@ namespace ContactManager.Web.Controllers
         public IActionResult Search(string searchTerm)
         {
             var items = new List<Contact>();
-            if (searchTerm != null)
+            if (searchTerm == null)
             {
-                items = _context.Contacts
-                    .Include(item => item.Address)
-                    .Where(item => item.FirstName.Contains(searchTerm)
-                    || item.LastName.Contains(searchTerm)
-                    || item.Address.Street.Contains(searchTerm)
-                    || item.Address.City.Contains(searchTerm)
-                    || item.Address.State.Contains(searchTerm)
-                    || item.Address.PostalCode.Contains(searchTerm)
-                    )                    
-                    .ToList();
+                items = _context.Contacts.Include(item => item.Address).ToList();
             }
             else
             {
-                items = _context.Contacts.Include(item => item.Address).ToList();
+                items = _context.Contacts
+                   .Include(item => item.Address)
+                   .Where(item => item.FirstName.Contains(searchTerm)
+                   || item.LastName.Contains(searchTerm)
+                   || item.Address.Street.Contains(searchTerm)
+                   || item.Address.City.Contains(searchTerm)
+                   || item.Address.State.Contains(searchTerm)
+                   || item.Address.PostalCode.Contains(searchTerm))
+                   .ToList();
             }
             return PartialView("_SearchResults", items);
         }
