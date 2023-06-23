@@ -5,11 +5,16 @@
 <h2>Index</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">New Contact</a>
 </p>
 
+
 <form id="searchForm">
-    <input type="text" id="searchInput" />
+    <div class="form-group">
+        <label>Search:</label>
+        <input type="text" id="searchInput" />
+    </div>
+  
 </form>
 
 @Html.AntiForgeryToken()

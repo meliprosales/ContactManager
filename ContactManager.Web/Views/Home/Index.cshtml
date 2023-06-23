@@ -2,7 +2,76 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <h1>Contact Manager Application</h1>
+
+    <h2>Requirements</h2>
+    <ul>
+        <li>Visual Studio 2022 (Pro or Community)</li>
+        <li>Microsoft SQL Server (LocalDB, Developer, or Express editions)</li>
+        <li>Target .NET 7</li>
+        <li>Microsoft Entity Framework (Code First approach)</li>
+    </ul>
+
+    <h2>Schema</h2>
+    <p>The application uses the following database schema:</p>
+    <ul>
+        <li>
+            Contact (table)
+            <ul>
+                <li>First Name</li>
+                <li>Last Name</li>
+                <li>
+                    Address (table, foreign key, navigation from Contact)
+                    <ul>
+                        <li>Street</li>
+                        <li>City</li>
+                        <li>State</li>
+                        <li>Postal Code</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Application Features</h2>
+    <p>The Contact Manager application includes the following features:</p>
+    <ul>
+        <li>
+            Contact List
+            <ul>
+                <li>Grid view displaying all contacts</li>
+                <li>Search functionality allowing users to search across all fields using a "contains" approach</li>
+                <li>Real-time filtering of the grid as the user types in the search box</li>
+                <li>"New Contact" button to add a new contact</li>
+                <li>"Edit" button to modify an existing contact</li>
+                <li>"Delete" button to remove a contact</li>
+                <li>Integration with a Bing Maps service API to validate addresses</li>
+                <li>Displaying the address location on a map</li>
+                <li>Utilizing AJAX for seamless page updates without refreshing</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Setup Instructions</h2>
+    <ol>
+        <li>Clone or download the repository from [GitHub].</li>
+        <li>Open the solution in Visual Studio 2022.</li>
+        <li>Make sure you have the appropriate version of Microsoft SQL Server installed.</li>
+        <li>Update the connection string in the <code>appsettings.json</code> file of the MVC project to point to your SQL Server database.</li>
+        <li>Update the initial numberOfContacts in the <code>appsettings.json</code> to generate seed data.</li>
+        <li>Update BingMaps ApiKey <code>appsettings.json</code> file of the MVC project to point a valid key for  <a href="https://www.bingmapsportal.com/">BingMaps</a></li>
+        <li>Build the solution to restore the NuGet packages.</li>
+        <li>Run the application and access it through your preferred web browser.</li>
+    </ol>
+
+    <h2>Usage</h2>
+    <p>Once the Contact Manager application is set up and running, you can perform the following actions:</p>
+    <ul>
+        <li>View the list of contacts with their associated addresses.</li>
+        <li>Use the search box to filter contacts based on various fields.</li>
+        <li>Add a new contact using the "New Contact" button.</li>
+        <li>Edit an existing contact by clicking the "Edit" button.</li>
+        <li>Delete a contact using the "Delete" button.</li>
+    </ul>
+    <p>Please ensure that you have valid and active SQL Server credentials and connection string to interact with the database successfully.</p>
+    <p>Please ensure that you have valid and active BingMaps ApiKey to interact with the Maps</p>
