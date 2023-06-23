@@ -93,10 +93,13 @@ $(document).ready(function () {
 
     searchItems("");
 
+    $.validator.setDefaults({
+        onkeyup: false
+    })
+
     $.ajax({
         type: "GET",
-        url: "/Configuration/GetConfigurationValue"
-  
+        url: "/Configuration/GetConfigurationValue"  
     }).done(
         function (parameterValue) {
             (async () => {
@@ -106,9 +109,6 @@ $(document).ready(function () {
                 document.body.appendChild(script);
             })();
         });
-
- 
-
 });
 
 

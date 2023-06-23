@@ -12,7 +12,7 @@ function GetMap() {
         searchManager = new Microsoft.Maps.Search.SearchManager(map);
 
         //Create a jQuery autocomplete UI widget.
-        $("#queryTbx").autocomplete({
+        $("#FormattedAddress").autocomplete({
             minLength: 3,   //Don't ask for suggestions until atleast 3 characters have been typed.
             source: function (request, response) {
                 //Get suggestions from the AutosuggestManager.
@@ -36,8 +36,8 @@ function GetMap() {
                 .appendTo(ul);
             };
 
-        if ($("#queryTbx").val() != '') {
-            geocodeInitialAddress($("#queryTbx").val());
+        if ($("#FormattedAddress").val() != '') {
+            geocodeInitialAddress($("#FormattedAddress").val());
         }
 
     });
@@ -94,7 +94,7 @@ function suggestionSelected(suggestion) {
     //Show the suggestion as a pushpin and center map over it.
     var pin = new Microsoft.Maps.Pushpin(suggestion.location);
     map.entities.push(pin);
-    document.getElementById('queryTbx').value = suggestion.address.formattedAddress || '';
+    document.getElementById('FormattedAddress').value = suggestion.address.formattedAddress || '';
 
 
     //Set the map view to the best view for the result, if defined.

@@ -19,7 +19,7 @@ namespace ContactManager.Web.Services
 
         public BingMapsService(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
-            _httpClient = httpClientFactory.CreateClient("BingMaps"); 
+            _httpClient = httpClientFactory.CreateClient("BingMaps");
             _apiKey = configuration["BingMaps:ApiKey"]; // Retrieve the API key from your appsettings.json or configuration source
         }
 
@@ -49,31 +49,15 @@ namespace ContactManager.Web.Services
 
                 if (validationData?.ResourceSets?.Count > 0 && validationData.ResourceSets[0].Resources.Count > 0)
                 {
-                    var addressResult = validationData.ResourceSets[0].Resources[0] as BingMapsAddressResult;
-
-                    if (addressResult.Confidence != "High")
+                    // TODO Address is valid with high confidence
+                    return new AddressValidationResult
                     {
-                        // Address validation failed with low or medium confidence
-                        return new AddressValidationResult
-                        {
-                            IsValid = false,
-                            ValidationMessage = "Address validation failed with low or medium confidence."
-                        };
-                    }
-                    else
-                    {
-                        // Address is valid with high confidence
-                        return new AddressValidationResult
-                        {
-                            IsValid = true,
-                            ValidatedAddress = addressResult.Address
-                        };
-                    }
-                }
+                        IsValid = true,
+                    };
+                };
             }
 
             // Handle error response or address not found
-
             return new AddressValidationResult
             {
                 IsValid = false,
@@ -102,7 +86,7 @@ namespace ContactManager.Web.Services
         // Add properties to deserialize the response JSON for address validation
     }
 
-    public class BingMapsAddressResult: BingMapsResource
+    public class BingMapsAddressResult : BingMapsResource
     {
         public string Confidence { get; set; }
         public string MatchCode { get; set; }

@@ -63,7 +63,7 @@ namespace ContactManager.Web.Controllers
         // GET: ContactsController/Create
         public IActionResult Create()
         {
-            return View();
+            return View(new ContactViewModel());
         }
 
         // POST: ContactsController/Create

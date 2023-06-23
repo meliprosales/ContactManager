@@ -15,9 +15,10 @@ namespace ContactManager.Web.Controllers
         }
 
         [AcceptVerbs("GET", "POST")]
-        public async Task<IActionResult> ValidateAddress(string address)
+        public async Task<IActionResult> ValidateAddress(string FormattedAddress)
         {
-            var validation = await _bingMapsService.ValidateAddress(address);
+
+            var validation = await _bingMapsService.ValidateAddress(FormattedAddress);
 
             if (validation.IsValid)
             {
@@ -25,7 +26,7 @@ namespace ContactManager.Web.Controllers
             }
             else
             {
-                return Json($"Address {address} is not correct.");
+                return Json($"Address {FormattedAddress} is not correct.");
             }
         }
     }
