@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManager.Web", "ContactManager.Web\ContactManager.Web.csproj", "{2FF8DAAB-5F3C-4FB8-BF45-1287F3A351A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManager.BusinessLogic", "ContactManager.BusinessLogic\ContactManager.BusinessLogic.csproj", "{AB057773-EFD3-41B7-8EF8-BE849A8D642A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FF8DAAB-5F3C-4FB8-BF45-1287F3A351A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FF8DAAB-5F3C-4FB8-BF45-1287F3A351A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FF8DAAB-5F3C-4FB8-BF45-1287F3A351A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FF8DAAB-5F3C-4FB8-BF45-1287F3A351A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB057773-EFD3-41B7-8EF8-BE849A8D642A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB057773-EFD3-41B7-8EF8-BE849A8D642A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB057773-EFD3-41B7-8EF8-BE849A8D642A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB057773-EFD3-41B7-8EF8-BE849A8D642A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {694EC1A5-7036-4CDD-8E89-87AF2B998CFB}
+	EndGlobalSection
+EndGlobal
