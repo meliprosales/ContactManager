@@ -24,5 +24,9 @@ namespace ContactManager.BusinessLogic
 
         public Address Address { get; set; }
 
+        public int ContactManagerId { get; set; }
+
+        public ContactManager ContactManager{get; set;}
+
     }
 }

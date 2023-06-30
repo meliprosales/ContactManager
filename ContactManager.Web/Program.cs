@@ -24,6 +24,8 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddScoped<BingMapsService, BingMapsService>();
 
+builder.Services.AddScoped<IContactManagerService, ContactManagerService>();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -53,6 +55,5 @@ using (var scope = app.Services.CreateScope())
     DataGenerator.InitData();
     dbContext.Database.EnsureCreated();
 }
-
 
 app.Run();

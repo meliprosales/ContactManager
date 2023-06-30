@@ -18,8 +18,11 @@ namespace ContactManager.BusinessLogic
 
         public DbSet<Address> Addresses { get; set; }
 
+        public DbSet<ContactManager> ContactManagers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ContactManager>().HasData(DataGenerator.ContactManagers);
             modelBuilder.Entity<Contact>().HasData(DataGenerator.Contacts);
             modelBuilder.Entity<Address>().HasData(DataGenerator.Addresses);
             base.OnModelCreating(modelBuilder);

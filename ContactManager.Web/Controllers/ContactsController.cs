@@ -9,12 +9,14 @@ namespace ContactManager.Web.Controllers
     public class ContactsController : Controller
     {
         private readonly ContactManagerContext _context;
+        private readonly IContactManagerService _contactManagerService;
         private readonly IMapper _mapper;
 
-        public ContactsController(ContactManagerContext context, IMapper mapper)
+        public ContactsController(ContactManagerContext context, IMapper mapper, IContactManagerService contactManagerService)
         {
             _context = context;
             _mapper = mapper;
+            _contactManagerService = contactManagerService;
         }
 
         // GET: ContactsController

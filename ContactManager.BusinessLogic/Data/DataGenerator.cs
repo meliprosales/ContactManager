@@ -17,6 +17,8 @@ namespace ContactManager.BusinessLogic.Data
 
         public static readonly List<Address> Addresses = new();
 
+        public static readonly List<ContactManager> ContactManagers = new();
+
         public static int NumberOfContacts = 5;
 
         public static void InitData()
@@ -27,7 +29,10 @@ namespace ContactManager.BusinessLogic.Data
 
         public static void InitContactsData()
         {
-            var contactGenerator = GetContactGenerator(1);
+            var contactManager = new ContactManager { Name = "Test", LastName = "Test", Id=1 };
+            ContactManagers.Add(contactManager);
+
+            var contactGenerator = GetContactGenerator(1, contactManager);
             var generatedContacts = contactGenerator.Generate(NumberOfContacts);
             Contacts.AddRange(generatedContacts);
         }
@@ -44,13 +49,14 @@ namespace ContactManager.BusinessLogic.Data
             return generatedAddresses;
         }
 
-        private static Faker<Contact> GetContactGenerator(int id)
+        private static Faker<Contact> GetContactGenerator(int id, ContactManager contactManager)
         {
             int nextId = id;
             return new Faker<Contact>()
                 .RuleFor(e => e.Id, _ => nextId++)
                 .RuleFor(e => e.FirstName, f => f.Name.FirstName())
-                .RuleFor(e => e.LastName, f => f.Name.LastName());
+                .RuleFor(e => e.LastName, f => f.Name.LastName())
+                .RuleFor(e => e.ContactManagerId, _ => contactManager.Id);
         }
 
         private static Faker<Address> GetAddressGenerator(int contactId, int id)
