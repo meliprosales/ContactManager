@@ -36,8 +36,8 @@ The Contact Manager application includes the following features:
   - Search functionality allowing users to search across all fields using a "contains" approach
   - Real-time filtering of the grid as the user types in the search box
   - "New Contact" button to add a new contact
-  - "Edit Contact" button to modify an existing contact
-  - "Delete Contact" button to remove a contact
+  - "Edit" button to modify an existing contact
+  - "Delete" button to remove a contact
   - Integration with a third-party web service API to validate addresses
   - Displaying the address location on a map
   - Utilizing AJAX for seamless page updates without refreshing
@@ -50,7 +50,7 @@ Follow these steps to set up the Contact Manager application:
 2. Open the solution in Visual Studio 2022.
 3. Make sure you have the appropriate version of Microsoft SQL Server installed.
 4. Update the connection string in the `appsettings.json` file of the MVC project to point to your SQL Server database.
-5. Build the solution to restore the NuGet packages.Update the initial numberOfContacts in the appsettings.json to generate seed data.
+5. Update the initial numberOfContacts in the appsettings.json to generate seed data.
 6. Update BingMaps ApiKey appsettings.json file of the MVC project to point a valid key for BingMaps
 7. Build the solution to restore the NuGet packages.
 8. Run the application and access it through your preferred web browser.
