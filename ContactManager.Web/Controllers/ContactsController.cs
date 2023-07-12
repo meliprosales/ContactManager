@@ -77,7 +77,7 @@ namespace ContactManager.Web.Controllers
             {
                 return View(model);
             }
-            var contact = new Contact { FirstName = model.FirstName, LastName = model.LastName };
+            var contact = new Contact { FirstName = model.FirstName, LastName = model.LastName, ContactManagerId = 1 };
             _context.Contacts.Add(contact);
             _context.SaveChanges();
             var address = new BusinessLogic.Address { Street = model.Street, City = model.City, PostalCode = model.PostalCode, State = model.State, ContactId = contact.Id };
